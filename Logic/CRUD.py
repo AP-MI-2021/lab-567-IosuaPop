@@ -12,8 +12,15 @@ def adaugaRezervare(id, nume, clasa, pret, checkIn, lista):
     :param lista: lista de rezervari
     :return: o lista continand atat elementele vechi, cat si noua rezervare
     '''
+    ec = "economy"
+    ecp = "economy plus"
+    bs = "business"
     if getById(id, lista) is not None:
         raise ValueError("Id-ul exista deja!")
+    if clasa != ec or clasa != ecp or clasa != bs:
+        raise ValueError("Clasa de zbor poate fi doar: economy, economy plus sau business!")
+    if checkIn !="da" or checkIn != "nu":
+        raise ValueError("Checkin-ul poate fi doar Da sau Nu")
     rezervare = creeazaRezervare(id, nume, clasa, pret, checkIn)
     return lista + [rezervare]
 

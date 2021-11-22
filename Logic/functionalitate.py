@@ -32,14 +32,30 @@ def reducerePret(procentaj, lista):
 
 def trecereRezervariPeUnNume(nume, lista):
     '''
+    Trece rezervarea/rezervarile ce apartin unui nume la o clasa superioara
     :param nume:
     :param lista:
     :return:
     '''
-    listaNoua = []
+    exista=None
     for rezervare in lista:
-        if getNume(rezervare) != nume:
-            rezervareNoua=(getId(rezervare), nume, getClasa(rezervare), getPret(rezervare), getPret(rezervare))
+        if getNume(rezervare)==nume:
+            k=1
+    if exista == None:
+        raise ValueError(f"Nu exista rezervari pe numele {nume}")
+    listaNoua = []
+    ec="economy"
+    ecp="economy plus"
+    bs="business"
+    for rezervare in lista:
+        if getNume(rezervare) == nume:
+            if getClasa(rezervare) == ec:
+                clasa=ecp
+            elif getClasa(rezervare) == ecp:
+                clasa=bs
+            else:
+                clasa=bs
+            rezervareNoua=creeazaRezervare(getId(rezervare), nume, clasa, getPret(rezervare), getPret(rezervare))
             listaNoua.append(rezervareNoua)
         else:
             listaNoua.append(rezervare)
@@ -47,19 +63,24 @@ def trecereRezervariPeUnNume(nume, lista):
 
 def pretMaxperClasa(lista):
     '''
+    afla pretul maxim pentru fiecare clasa
     :param lista:
     :return:
     '''
-    rezultat = {'economy':0, 'economy plus':0, 'business':0}
+    rezultat = {}
     for rezervare in lista:
         pret = getPret(rezervare)
         clasa = getClasa(rezervare)
-        if pret > rezultat[clasa]:
+        if clasa in rezultat:
+            if pret > rezultat[clasa]:
+                rezultat[clasa] = pret
+        else:
             rezultat[clasa] = pret
     return rezultat
 
 def ordonareDupaPretDescrescator(lista):
     '''
+    ordoneaza rezervarile descresc dupa pretul rezervarii
     :param lista:
     :return:
     '''

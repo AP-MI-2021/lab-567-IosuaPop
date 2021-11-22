@@ -1,12 +1,12 @@
 def creeazaRezervare(id, nume, clasa, pret, checkIn):
     '''
-    creaza un dictiionar ce reprezinta o prajitura
+    creaza un dictiionar ce reprezinta o rezervare
     :param id: string
     :param nume: string
     :param clasa: string
     :param pret: float
     :param checkIn: string
-    :return: un dictionar ce contine o prajitura
+    :return: un dictionar ce contine o rezervare
     '''
     return {
         "id": id,
