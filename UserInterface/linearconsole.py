@@ -8,43 +8,48 @@ def consola(lista):
     print("exemplu: a;1,2,3,4,5;sa;d;1")
     comanda = input("Introduceti operatiile=")
     listaOperatii=(comanda.split(";"))
-    i=1
-    for i in range(len(listaOperatii)):
+    for i in range(0,len(listaOperatii)):
         if listaOperatii[i]=='sa':
             showAll(lista)
         elif listaOperatii[i]=='a':
             if len(listaOperatii)>=i+1:
                 listaAdaugare=listaOperatii[i+1].split(',')
-                if len(listaAdaugare) == 5:
-                    id=listaAdaugare[1]
-                    nume=listaAdaugare[2]
-                    clasa=listaAdaugare[3]
-                    pret=float(listaAdaugare[4])
-                    checkIn=listaAdaugare[5]
+                listaInt=[]
+                for j in range(0,len(listaAdaugare)):
+                    listaInt.append(int(listaAdaugare[j]))
+                if len(listaInt) == 5:
+                    id=listaInt[0]
+                    nume=listaInt[1]
+                    clasa=listaInt[2]
+                    pret=float(listaInt[3])
+                    checkIn=listaInt[4]
                     adaugaRezervare(id,nume,clasa,pret,checkIn,lista)
                 else:
-                    print("Nu se poate efectua operatia")
+                    print("Nu se poate efectua operatia, nu sunt destule iteme de adaugat")
             else:
-                print("Nu se poate efectua operatia")
+                print("Nu se poate efectua operatia, nu exista iteme de adaugat")
         elif listaOperatii[i] == 'd':
             if len(listaOperatii)>= i+1:
-                stergeRezervare(listaOperatii[i+1],lista)
+                stergeRezervare(int(listaOperatii[i+1]),lista)
             else:
-                print("Nu se poate efectua operatia")
+                print("Nu se poate efectua operatia,nu exista id")
         elif listaOperatii[i] == 'm':
             if len(listaOperatii)>=i+1:
                 listaModificare=listaOperatii[i+1].split(',')
-                if len(listaModificare) == 5:
-                    id=listaModificare[1]
-                    nume=listaModificare[2]
-                    clasa=listaModificare[3]
-                    pret=float(listaModificare[4])
-                    checkIn=listaModificare[5]
+                listaInt = []
+                for j in range(0, len(listaModificare)):
+                    listaInt[j] = int(listaModificare[j])
+                if len(listaInt) == 5:
+                    id=listaInt[0]
+                    nume=listaInt[1]
+                    clasa=listaInt[2]
+                    pret=float(listaInt[3])
+                    checkIn=listaInt[4]
                     modificaRezervare(id,nume,clasa,pret,checkIn,lista)
                 else:
-                    print("Nu se poate efectua operatia")
+                    print("Nu se poate efectua operatia, nu exista destule iteme de modificat")
             else:
-                print("Nu se poate efectua operatia")
+                print("Nu se poate efectua operatia, nu exista itemele de modificat")
         elif listaOperatii[i]== "x":
             break
         else:
@@ -55,3 +60,5 @@ def consola(lista):
 def showAll(lista):
     for rezervare in lista:
         print(toString(rezervare))
+lista=[]
+consola(lista)
