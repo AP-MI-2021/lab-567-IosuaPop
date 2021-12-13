@@ -62,9 +62,9 @@ def testModificaRezervare():
     except ValueError:
         rezervareNeupdatata = getById("1", lista)
         assert getId(rezervareNeupdatata) == "1"
-        assert getNume(rezervareNeupdatata) == "Bucuresti"
+        assert getNume(rezervareNeupdatata) == "Canada"
         assert getClasa(rezervareNeupdatata) == "business"
-        assert getPret(rezervareNeupdatata) == 160
-        assert getCheckIn(rezervareNeupdatata) == "Nu"
+        assert getPret(rezervareNeupdatata) == 230
+        assert getCheckIn(rezervareNeupdatata) == "Da"
     except Exception:
         assert False

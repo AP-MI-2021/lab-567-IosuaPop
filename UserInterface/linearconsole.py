@@ -61,4 +61,3 @@ def showAll(lista):
     for rezervare in lista:
         print(toString(rezervare))
 lista=[]
-consola(lista)

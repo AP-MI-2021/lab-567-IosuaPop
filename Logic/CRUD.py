@@ -17,10 +17,10 @@ def adaugaRezervare(id, nume, clasa, pret, checkIn, lista):
     bs = "business"
     if getById(id, lista) is not None:
         raise ValueError("Id-ul exista deja!")
-    if clasa != ec or clasa != ecp or clasa != bs:
+    '''if clasa != ec or clasa != ecp or clasa != bs:
         raise ValueError("Clasa de zbor poate fi doar: economy, economy plus sau business!")
     if checkIn !="da" or checkIn != "nu":
-        raise ValueError("Checkin-ul poate fi doar Da sau Nu")
+        raise ValueError("Checkin-ul poate fi doar Da sau Nu")'''
     rezervare = creeazaRezervare(id, nume, clasa, pret, checkIn)
     return lista + [rezervare]
 

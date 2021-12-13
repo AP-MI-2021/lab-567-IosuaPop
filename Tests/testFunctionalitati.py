@@ -38,7 +38,7 @@ def testPretMaxperClasa():
 
     rezultat = pretMaxperClasa(lista)
 
-    assert len(rezultat) == 3
+    assert len(rezultat) == 2
     assert rezultat["business"] == 180
     assert rezultat["economy"] == 150
 

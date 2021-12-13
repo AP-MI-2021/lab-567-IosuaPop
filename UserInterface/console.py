@@ -13,7 +13,9 @@ def printMenu():
     print("6. Determinarea rezervarii cu cel mai mare pret din fiecare clasa")
     print("7. Ordonarea rezervarilor descrescator după preț")
     print("8. Afișarea sumelor prețurilor pentru fiecare nume")
-    print("a. Afisare prajituri")
+    print("a. Afisare rezervare")
+    print("u. Undo")
+    print("r. Redo")
     print("x. Iesire")
 
 
@@ -51,7 +53,7 @@ def uiModificaRezervare(lista, undoList, redoList):
         nume = input("Dati noul nume: ")
         clasa = input("Alegeti noua clasa de zbor: ")
         pret = float(input('Dati noul pret: '))
-        checkIn = int(input("Alegeti varianta noua de checkin: "))
+        checkIn = input("Alegeti varianta noua de checkin: ")
         rezultat = modificaRezervare(id, nume, clasa, pret, checkIn, lista)
         undoList.append(lista)
         redoList.clear()
@@ -80,7 +82,7 @@ def uiReducerePret(lista, undoList, redoList):
 
 def uiTrecereRezervariPeUnNume(lista, undoList, redoList):
     try:
-        nume = int(input("Dati numele: "))
+        nume = input("Dati numele: ")
         rezultat = trecereRezervariPeUnNume(nume, lista)
         undoList.append(lista)
         redoList.clear()
@@ -125,11 +127,11 @@ def runMenu(lista):
         elif optiune == "4":
             lista = uiReducerePret(lista, undoList, redoList)
         elif optiune == "5":
-            uiTrecereRezervariPeUnNume(lista, undoList, redoList)
+            lista = uiTrecereRezervariPeUnNume(lista, undoList, redoList)
         elif optiune == "6":
             uiPretMaxperClasa(lista, undoList, redoList)
         elif optiune == "7":
-            uiOrdonareDupaPretDescrescator(lista, undoList, redoList)
+            lista = uiOrdonareDupaPretDescrescator(lista, undoList, redoList)
         elif optiune == "8":
             uiSumaPreturiPerNume(lista, undoList, redoList)
         elif optiune == "a":

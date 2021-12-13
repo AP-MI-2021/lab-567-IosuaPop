@@ -11,7 +11,7 @@ def creeazaRezervare(id, nume, clasa, pret, checkIn):
     return {
         "id": id,
         "nume": nume,
-        "descriere": clasa,
+        "clasa": clasa,
         "pret": pret,
         "checkIn": checkIn,
     }

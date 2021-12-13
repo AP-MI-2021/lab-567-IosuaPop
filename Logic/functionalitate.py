@@ -37,12 +37,6 @@ def trecereRezervariPeUnNume(nume, lista):
     :param lista:
     :return:
     '''
-    exista=None
-    for rezervare in lista:
-        if getNume(rezervare)==nume:
-            k=1
-    if exista == None:
-        raise ValueError(f"Nu exista rezervari pe numele {nume}")
     listaNoua = []
     ec="economy"
     ecp="economy plus"
